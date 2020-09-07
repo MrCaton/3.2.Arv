@@ -20,10 +20,15 @@ namespace _3._2.Arv
         //    Age = age;
         //    Weight = weight;
         //}
-        public override string Stats()
+
+        //Ska deklareras som virtual
+        public virtual string Stats()
         {
-            return "Sfe";
+            return $"{Name} {Age} {Weight}";
         }
+
+        //Deklarationen för den abstrakta metoden DoSound.
+        public abstract string DoSound();
 
     }
 
@@ -34,10 +39,12 @@ namespace _3._2.Arv
         {
             TypeOfHorse = typeOfHorse;
         }
-        public string DoSound() => "Iiiiiibrbrbr";
+        //Måste ha override keyword.
+        public override string DoSound() => "Iiiiiibrbrbr";
+
         public override string Stats()
         {
-            return "Sfe";
+            return $"{base.Stats()} {TypeOfHorse}";
         }
     }
     class Dog : Animal
@@ -47,7 +54,8 @@ namespace _3._2.Arv
         {
             Race = race;
         }
-        public string DoSound() => "Guau guau";
+        public override string DoSound() => "Guau guau";
+
     }
     class Hedgehog : Animal
     {
@@ -56,7 +64,8 @@ namespace _3._2.Arv
         {
             NrOfSpikes = nrOfSpikes;
         }
-        public string DoSound() => "dfsghgsdfgr";
+        public override string DoSound() => "dfsghgsdfgr";
+
     }
     class Worm : Animal
     {
@@ -65,7 +74,7 @@ namespace _3._2.Arv
         {
             IsPoisonous = isPoisonous;
         }
-        public string DoSound() => "...";
+        public override string DoSound() => "...";
     }
     class Wolf : Animal
     {
@@ -74,7 +83,7 @@ namespace _3._2.Arv
         {
             IsAlpha = isAlpha;
         }
-        public string DoSound() => "Auuuuuuu";
+        public override string DoSound() => "Auuuuuuu";
     }
     class Bird : Animal
     {
@@ -83,7 +92,7 @@ namespace _3._2.Arv
         {
             WingSpan = wingSpan;
         }
-        public string DoSound() => "Pio Pio";
+        public override string DoSound() => "Pio Pio";
     }
 
     class Pelican : Bird
