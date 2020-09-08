@@ -119,26 +119,41 @@ namespace _3._2.Arv
             LenghtNeck = lenghtNeck;
 
         }
-        public override string Stats(int lenghtNeck)
-        {
-            return $"The properties are { }";
 
+        //Går bara att overrida (överskugga) ifall du använder samma method signatur e.g public override string Stats()
+        //public override string Stats(int lenghtNeck)
+        //{
+        //    return $"The properties are { }";
+
+        //}
+
+        public override string Stats()
+        {
+            return $"{base.Stats()} Length neck: {LenghtNeck}";
         }
 
     }
-    interface IPerson<T>
+    interface IPerson
     {
-        bool Talk(Wolfman sentence)
-        {
-            return $"{Sentence}";
-        }
+        //Kan bara ha metod deklarationer i ett gränssnitt (Interface)
+        //bool Talk(Wolfman sentence)
+        //{
+        //    return $"{Sentence}";
+        //}
+
+        void Talk();
     }
-    class Wolfman:Wolf
+    class Wolfman:Wolf, IPerson
     {
         public string Sentence { get; set; }
         public Wolfman(string isAlpha,string sentence):base(isAlpha)
         {
            Sentence=sentence;
+        }
+
+        public void Talk()
+        {
+            Console.WriteLine(Sentence);
         }
     }
     

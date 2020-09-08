@@ -4,7 +4,8 @@ namespace _3._2.Arv
 {
     class Program
     {
-        static Animal animal = new Animal();
+        
+        //static Animal animal = new Animal(); //Går inte att instansiera eftersom klassen är abstrakt.
         static void Main(string[] args)
         {
             do //Loop
